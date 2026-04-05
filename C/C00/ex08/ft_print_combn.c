@@ -4,6 +4,20 @@
 
 // entre 1 et 9
 
+void write_all(int *nb, int n)
+{
+	int i = 0;
+	char c;
+
+	while (i < n)
+	{
+		c = nb[i] + '0';
+		write(1, &c, 1);
+		i++;
+	}
+	write(1, ", ", 1);
+}
+
 void ft_print_combn(int n)
 {
 	int nb[n];
@@ -13,8 +27,17 @@ void ft_print_combn(int n)
 	while (len < n)
 	{
 		nb[len] = len;
-		printf("%d\n", nb[i]);
+		printf("%d\n", nb[len]);
 		len++;
+	}
+
+	int last_nb = len;
+
+	while (nb[last_nb] < 9)
+	{
+		
+		write_all(nb, n);
+		last_nb ++;
 	}
 }
 
@@ -28,6 +51,6 @@ void ft_print_combn(int n)
 
 int main()
 {
-	ft_print_combn(9);
+	ft_print_combn(3);
 	return 0;
 }
