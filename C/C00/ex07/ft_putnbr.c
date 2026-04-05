@@ -1,5 +1,4 @@
 #include <unistd.h>
-#include <stdio.h>
 
 void print(char c, int a)
 {
